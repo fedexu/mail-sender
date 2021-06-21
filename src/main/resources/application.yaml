@@ -1,0 +1,9 @@
+server:
+  port: 9000
+
+sendgrid:
+  mail:
+    template: >
+      {"personalizations":[{"to":[{"email":"federico.xu125@gmail.com"} <toEmail>],"subject":"Contact information from -> <subject> "}],"from":{"email":"fede-xu125@live.it"},"content":[{"type":"text/plain","value": "<body>"}]}
+    toAdd: >
+      ,{"email":"<email>"}
