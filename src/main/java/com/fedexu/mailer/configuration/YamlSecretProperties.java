@@ -13,4 +13,6 @@ import java.util.List;
 @PropertySource(value = "classpath:secret.yaml", factory = YamlPropertySourceFactory.class)
 public class YamlSecretProperties {
     private String SENDGRID_API_KEY;
+    private String TOEMAIL;
+    private String FROMEMAIL;
 }

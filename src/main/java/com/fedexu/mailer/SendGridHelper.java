@@ -1,5 +1,6 @@
 package com.fedexu.mailer;
 
+import com.fedexu.mailer.configuration.YamlSecretProperties;
 import com.sendgrid.Method;
 import com.sendgrid.Request;
 import com.sendgrid.Response;
@@ -11,7 +12,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.time.Clock;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -22,6 +22,9 @@ public class SendGridHelper {
     Logger logger = LoggerFactory.getLogger(SendGridHelper.class);
 
     public long eventTime = System.currentTimeMillis();
+
+    @Autowired
+    YamlSecretProperties yamlSecretProperties;
 
     @Autowired
     private SendGrid sendGridClient;
@@ -36,6 +39,8 @@ public class SendGridHelper {
     private final String SUBJECT = "<subject>";
     private final String BODY = "<body>";
     private final String EMAIL = "<email>";
+    private final String FROMEMAIL = "<FROMEMAIL>";
+    private final String TOEMAIL = "<TOEMAIL>";
 
     public int sendMail(List<String> to, String subject, String body) throws IOException {
         Request request = new Request();
@@ -44,7 +49,9 @@ public class SendGridHelper {
         request.setBody(emailTemplate
                 .replace(TO, to.stream().map(s -> addTemplate.replace(EMAIL, s)).collect(Collectors.joining()))
                 .replace(SUBJECT, securityCheck(subject))
-                .replace(BODY, securityCheck(body)));
+                .replace(BODY, securityCheck(body))
+                .replace(TOEMAIL, yamlSecretProperties.getTOEMAIL()
+                .replace(FROMEMAIL, yamlSecretProperties.getFROMEMAIL())));
         Response response = sendGridClient.api(request);
         return response.getStatusCode();
     }
