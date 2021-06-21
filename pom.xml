@@ -15,6 +15,9 @@
 	<description>Simple Mail Sender integration to Send Grid with Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
+		<sonar.projectKey>fedexu_mail-sender</sonar.projectKey>
+		<sonar.organization>fedexu</sonar.organization>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	</properties>
 	<dependencies>
 		<dependency>
