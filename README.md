@@ -5,7 +5,7 @@
 
 
 [![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/fedexu/love-article/blob/master/LICENSE)
-[![sonar qube](https://sonarcloud.io/api/project_badges/measure?project=fedexu_mail-sender&metric=alert_status)](https://sonarcloud.io/dashboard?id=fedexu_love-article)
+[![sonar qube](https://sonarcloud.io/api/project_badges/measure?project=fedexu_mail-sender&metric=alert_status)](https://sonarcloud.io/dashboard?id=fedexu_mail-sender)
 
 # MailSender
 This is a simple java integration service for SendGrid API.
