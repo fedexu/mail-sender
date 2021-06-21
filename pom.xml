@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.fedexu.mailer</groupId>
 	<artifactId>mailer</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>mailer</name>
 	<description>Simple Mail Sender integration to Send Grid with Spring Boot</description>
 	<properties>
