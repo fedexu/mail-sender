@@ -50,8 +50,8 @@ public class SendGridHelper {
                 .replace(TO, to.stream().map(s -> addTemplate.replace(EMAIL, s)).collect(Collectors.joining()))
                 .replace(SUBJECT, securityCheck(subject))
                 .replace(BODY, securityCheck(body))
-                .replace(TOEMAIL, yamlSecretProperties.getTOEMAIL()
-                .replace(FROMEMAIL, yamlSecretProperties.getFROMEMAIL())));
+                .replace(TOEMAIL, yamlSecretProperties.getTOEMAIL())
+                .replace(FROMEMAIL, yamlSecretProperties.getFROMEMAIL()));
         Response response = sendGridClient.api(request);
         return response.getStatusCode();
     }
