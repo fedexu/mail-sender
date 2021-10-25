@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping(value="/api")
+@RequestMapping(value="/")
 public class MailController {
 
     Logger logger = LoggerFactory.getLogger(MailController.class);
@@ -23,7 +23,7 @@ public class MailController {
     private final String OK = "OK";
     private final String KO = "KO";
 
-    @PostMapping("/mail")
+    @PostMapping("/send")
     private ResponseEntity<EmailData> sendEmail(@RequestBody EmailData emailData){
         try{
             emailData.setResult(sendGridHelper.sendMail(emailData.getEMail(), emailData.getName(), emailData.getBody()));
