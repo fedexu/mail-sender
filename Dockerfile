@@ -1,7 +1,7 @@
 #
 # JDK 8
 #
-FROM openjdk:11-jre
+FROM openjdk:11
 
 ARG JAR_FILE
 
